@@ -21,3 +21,24 @@
 // [“Russia”, “Denmark”, “Kazan”] → []
 
 
+using System.Diagnostics.Contracts;
+using System.Threading.Tasks.Dataflow;
+
+Console.WriteLine("Введите размер массива -> ");
+int symbol = int.Parse(Console.ReadLine()!);
+
+Console.WriteLine("Введите элементы массива ->");
+
+Console.WriteLine(String.Join(", ",MassiveIndastial(symbol))); 
+
+
+string[] MassiveIndastial(int s)
+{
+    string[] array = new string[s];
+    for (int i = 0; i < array.Length; i++)
+    {
+        Console.Write("-> ");
+        array[i] = Console.ReadLine()!;
+    }
+    return array;
+}
