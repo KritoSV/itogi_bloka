@@ -22,14 +22,16 @@
 
 
 using System.Diagnostics.Contracts;
+using System.Reflection.Metadata.Ecma335;
 using System.Threading.Tasks.Dataflow;
 
 Console.WriteLine("Введите размер массива -> ");
 int symbol = int.Parse(Console.ReadLine()!);
 
 Console.WriteLine("Введите элементы массива ->");
-
-Console.WriteLine(String.Join(", ",MassiveIndastial(symbol))); 
+string[] massive = MassiveIndastial(symbol);
+Console.WriteLine(String.Join(", ", massive));
+Console.WriteLine("Массив с елементами менее трёх символов -> " + String.Join(", ", MassiveEnumeration(massive)));
 
 
 string[] MassiveIndastial(int s)
@@ -41,4 +43,28 @@ string[] MassiveIndastial(int s)
         array[i] = Console.ReadLine()!;
     }
     return array;
+}
+
+
+string[] MassiveEnumeration(string[] array)
+{
+    int count = 0;
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (array[i].Length <= 3)
+        {
+            count++;
+        }
+    }
+    string[] arr = new string[count];
+    count = 0;
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (array[i].Length <= 3)
+        {
+            arr[count] = array[i];
+            count++;
+        }
+    }
+    return arr;
 }
