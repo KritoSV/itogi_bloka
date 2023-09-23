@@ -34,7 +34,14 @@ Console.WriteLine(String.Join(", ", massive));
 Console.WriteLine("Массив с елементами менее трёх символов -> " + String.Join(", ", MassiveEnumeration(massive)));
 
 
-string[] MassiveIndastial(int s)
+partial class Program
+{
+/// <summary>
+/// Метод создания массива c элементами типа string, вводимыми пользователем
+/// </summary>
+/// <param name="s">Переменная задающая размер массива</param>
+/// <returns>Возвращает Массив элементов</returns>
+    public static string[] MassiveIndastial(int s)
 {
     string[] array = new string[s];
     for (int i = 0; i < array.Length; i++)
@@ -45,9 +52,14 @@ string[] MassiveIndastial(int s)
     return array;
 }
 
-
-string[] MassiveEnumeration(string[] array)
+/// <summary>
+/// Метод проверки массива с использованием параллельных цыклов for и записью 
+/// </summary>
+/// <param name="array">Массив используемый в методе проверки</param>
+/// <returns>Возвращает массив с элементами заданных параметров</returns>
+public static string[] MassiveEnumeration(string[] array)
 {
+
     int count = 0;
     for (int i = 0; i < array.Length; i++)
     {
@@ -67,4 +79,14 @@ string[] MassiveEnumeration(string[] array)
         }
     }
     return arr;
+}
+
+
+
+
+
+
+
+
+
 }
